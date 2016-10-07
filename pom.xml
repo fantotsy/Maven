@@ -10,32 +10,9 @@
     <name>Maven task</name>
     <description>Maven task</description>
 
-    <!--<plugins>-->
-        <!--<plugin>-->
-            <!--<groupId>org.codehaus.mojo</groupId>-->
-            <!--<artifactId>exec-maven-plugin</artifactId>-->
-            <!--<version>1.5.0</version>-->
-            <!--<executions>-->
-                <!--<execution>-->
-                    <!--<goals>-->
-                        <!--<goal>java</goal>-->
-                    <!--</goals>-->
-                <!--</execution>-->
-            <!--</executions>-->
-            <!--<configuration>-->
-                <!--<mainClass>com.example.Main</mainClass>-->
-                <!--<arguments>-->
-                    <!--<argument>argument1</argument>-->
-                <!--</arguments>-->
-                <!--<systemProperties>-->
-                    <!--<systemProperty>-->
-                        <!--<key>myproperty</key>-->
-                        <!--<value>myvalue</value>-->
-                    <!--</systemProperty>-->
-                <!--</systemProperties>-->
-            <!--</configuration>-->
-        <!--</plugin>-->
-    <!--</plugins>-->
+    <properties>
+        <App>ua.fantotsy.App</App>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -45,4 +22,39 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <mainClass>${App}</mainClass>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                <!--<version>2.17</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<configLocation>checkstyle.xml</configLocation>-->
+                            <!--<encoding>UTF-8</encoding>-->
+                            <!--<consoleOutput>true</consoleOutput>-->
+                            <!--<failsOnError>true</failsOnError>-->
+                            <!--<linkXRef>false</linkXRef>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
 </project>
