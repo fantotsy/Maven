@@ -26,32 +26,38 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.5.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>${App}</mainClass>
-                    <arguments>
-                        <argument>${firstArgument}</argument>
-                        <argument>${secondArgument}</argument>
-                    </arguments>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
     <profiles>
+        <profile>
+            <id>exec</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.5.0</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>${App}</mainClass>
+                            <arguments>
+                                <argument>${firstArgument}</argument>
+                                <argument>${secondArgument}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>NoITests</id>
             <activation>
