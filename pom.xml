@@ -45,6 +45,7 @@
                     <changeLogFile>
                         ${basedir}/src/main/liquibase/master.xml
                     </changeLogFile>
+                    <goal>update</goal>
                     <driver>oracle.jdbc.driver.OracleDriver</driver>
                     <url>${oracle.url}</url>
                     <username>${oracle.user}</username>
