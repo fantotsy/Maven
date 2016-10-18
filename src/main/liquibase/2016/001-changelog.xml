@@ -15,25 +15,6 @@
                 <constraints nullable="true"/>
             </column>
         </addColumn>
-        <!--<sql>-->
-            <!--UPDATE students SET surname = SUBSTR(st_name,1,INSTR(st_name,' '));-->
-            <!--UPDATE students SET initials = SUBSTR(st_name,INSTR(st_name,' ',2,1));-->
-        <!--</sql>-->
-        <!--<rollback>-->
-            <!--UPDATE students SET surname = NULL;-->
-            <!--UPDATE students SET initials = NULL;-->
-        <!--</rollback>-->
-        <!--<dropColumn tableName="students" columnName="st_name"/>-->
-        <!--<rollback>-->
-            <!--<addColumn tableName="students">-->
-                <!--<column name="st_name" type="VARCHAR(255)">-->
-                    <!--<constraints nullable="true"/>-->
-                <!--</column>-->
-            <!--</addColumn>-->
-            <!--<sql>-->
-                <!--UPDATE students SET st_name = CONCAT(surname, CONCAT(' ', initials));-->
-            <!--</sql>-->
-        <!--</rollback>-->
     </changeSet>
 
 </databaseChangeLog>
